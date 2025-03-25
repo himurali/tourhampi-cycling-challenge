@@ -16,8 +16,21 @@ const Hero = () => {
         ></div>
       </div>
 
-      {/* Chain ring animation */}
-      <div className="absolute right-[-10%] md:right-[-5%] top-[20%] w-[300px] h-[300px] md:w-[500px] md:h-[500px] opacity-20 pointer-events-none">
+      {/* Logo displayed prominently on top */}
+      <div className="absolute right-[5%] md:right-[10%] top-[20%] z-20 w-[250px] h-[250px] md:w-[400px] md:h-[400px]">
+        <div className="w-full h-full flex items-center justify-center">
+          <div className="w-[180px] h-[180px] md:w-[300px] md:h-[300px] rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center p-3">
+            <img 
+              src="/lovable-uploads/58f1b9e8-bad7-4091-beca-dce1e05d6c80.png" 
+              alt="Tour of Hampi Logo" 
+              className="w-full h-auto opacity-100" 
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Chain ring animation behind the logo */}
+      <div className="absolute right-[-10%] md:right-[-5%] top-[20%] z-10 w-[300px] h-[300px] md:w-[500px] md:h-[500px] opacity-20 pointer-events-none">
         <div className="relative w-full h-full">
           <svg viewBox="0 0 200 200" className="w-full h-full animate-spin-slow">
             <circle cx="100" cy="100" r="90" fill="none" stroke="black" strokeWidth="4" strokeDasharray="5,5" />
@@ -29,17 +42,6 @@ const Hero = () => {
               return <circle key={i} cx={x} cy={y} r="5" fill="black" />;
             })}
           </svg>
-          
-          {/* Add the logo image to the center of the spinning chain */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-[180px] h-[180px] md:w-[300px] md:h-[300px] rounded-full bg-white/60 backdrop-blur-sm flex items-center justify-center p-3">
-              <img 
-                src="/lovable-uploads/58f1b9e8-bad7-4091-beca-dce1e05d6c80.png" 
-                alt="Tour of Hampi Logo" 
-                className="w-full h-auto opacity-100" 
-              />
-            </div>
-          </div>
         </div>
       </div>
 
