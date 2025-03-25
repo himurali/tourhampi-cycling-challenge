@@ -105,6 +105,10 @@ export default {
           '0%': { transform: 'rotate(0deg)' },
           '100%': { transform: 'rotate(360deg)' },
         },
+        'scroll-slow': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -113,6 +117,7 @@ export default {
         'fade-out': 'fade-out 0.5s ease-out forwards',
         'slide-in': 'slide-in 0.5s ease-out forwards',
         'spin-slow': 'spin-slow 20s linear infinite',
+        'scroll-slow': 'scroll-slow 20s linear infinite',
       },
       backgroundImage: {
         'hero-pattern': "url('/public/lovable-uploads/a60baad1-ca88-4337-9ca2-9ea9dfc7c585.png')",
