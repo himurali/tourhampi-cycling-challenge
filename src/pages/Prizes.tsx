@@ -1,7 +1,21 @@
 
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Award, ArrowRight, Trophy, Medal, Gift } from "lucide-react";
+import { 
+  Award, 
+  ArrowRight, 
+  Trophy, 
+  Medal, 
+  Gift, 
+  Users, 
+  Camera, 
+  Mountain,
+  Zap,
+  TrendingUp
+} from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Prizes = () => {
   useEffect(() => {
@@ -9,55 +23,156 @@ const Prizes = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const prizes = {
+  const prizeStructure = {
     elite: {
-      men: [
-        { position: "1st Place", prize: "₹1,00,000" },
-        { position: "2nd Place", prize: "₹50,000" },
-        { position: "3rd Place", prize: "₹25,000" },
-        { position: "4th Place", prize: "₹15,000" },
-        { position: "5th Place", prize: "₹10,000" }
-      ],
-      women: [
-        { position: "1st Place", prize: "₹1,00,000" },
-        { position: "2nd Place", prize: "₹50,000" },
-        { position: "3rd Place", prize: "₹25,000" },
-        { position: "4th Place", prize: "₹15,000" },
-        { position: "5th Place", prize: "₹10,000" }
-      ]
+      title: "Elite",
+      description: "Professional and experienced cyclists",
+      participants: "450+ Participants expected",
+      color: "hampi-orange",
+      borderColor: "border-hampi-orange",
+      textColor: "text-hampi-orange",
+      bgColor: "bg-hampi-orange/10",
+      ageGroups: {
+        "18-34": {
+          men: [
+            { position: "1st", prize: "₹50,000" },
+            { position: "2nd", prize: "₹32,000" },
+            { position: "3rd", prize: "₹16,000" }
+          ],
+          women: [
+            { position: "1st", prize: "₹50,000" },
+            { position: "2nd", prize: "₹32,000" },
+            { position: "3rd", prize: "₹16,000" }
+          ]
+        },
+        "35-50": {
+          men: [
+            { position: "1st", prize: "₹20,000" },
+            { position: "2nd", prize: "₹15,000" },
+            { position: "3rd", prize: "₹7,000" }
+          ],
+          women: [
+            { position: "1st", prize: "₹20,000" },
+            { position: "2nd", prize: "₹15,000" },
+            { position: "3rd", prize: "₹7,000" }
+          ]
+        },
+        "50+": {
+          men: [
+            { position: "1st", prize: "₹20,000" },
+            { position: "2nd", prize: "₹10,000" },
+            { position: "3rd", prize: "₹6,000" }
+          ],
+          women: [
+            { position: "1st", prize: "₹20,000" },
+            { position: "2nd", prize: "₹10,000" },
+            { position: "3rd", prize: "₹6,000" }
+          ]
+        }
+      }
     },
     amateur: {
-      men: [
-        { position: "1st Place", prize: "₹50,000" },
-        { position: "2nd Place", prize: "₹25,000" },
-        { position: "3rd Place", prize: "₹10,000" },
-      ],
-      women: [
-        { position: "1st Place", prize: "₹50,000" },
-        { position: "2nd Place", prize: "₹25,000" },
-        { position: "3rd Place", prize: "₹10,000" },
-      ]
+      title: "Amateur",
+      description: "Intermediate-level cyclists",
+      participants: "350-400 Participants expected",
+      color: "hampi-blue",
+      borderColor: "border-hampi-blue",
+      textColor: "text-hampi-blue",
+      bgColor: "bg-hampi-blue/10",
+      ageGroups: {
+        "18-34": {
+          men: [
+            { position: "1st", prize: "₹24,000" },
+            { position: "2nd", prize: "₹12,000" },
+            { position: "3rd", prize: "₹7,000" }
+          ],
+          women: [
+            { position: "1st", prize: "₹24,000" },
+            { position: "2nd", prize: "₹12,000" },
+            { position: "3rd", prize: "₹7,000" }
+          ]
+        },
+        "35-50": {
+          men: [
+            { position: "1st", prize: "₹12,000" },
+            { position: "2nd", prize: "₹7,000" },
+            { position: "3rd", prize: "₹5,000" }
+          ],
+          women: [
+            { position: "1st", prize: "₹12,000" },
+            { position: "2nd", prize: "₹7,000" },
+            { position: "3rd", prize: "₹5,000" }
+          ]
+        },
+        "50+": {
+          men: [
+            { position: "1st", prize: "₹10,000" },
+            { position: "2nd", prize: "₹6,000" },
+            { position: "3rd", prize: "₹4,000" }
+          ],
+          women: [
+            { position: "1st", prize: "₹10,000" },
+            { position: "2nd", prize: "₹6,000" },
+            { position: "3rd", prize: "₹4,000" }
+          ]
+        }
+      }
     },
-    open: {
-      men: [
-        { position: "1st Place", prize: "₹20,000" },
-        { position: "2nd Place", prize: "₹10,000" },
-        { position: "3rd Place", prize: "₹5,000" },
-      ],
-      women: [
-        { position: "1st Place", prize: "₹20,000" },
-        { position: "2nd Place", prize: "₹10,000" },
-        { position: "3rd Place", prize: "₹5,000" },
-      ]
+    common: {
+      title: "Common",
+      description: "Casual cyclists and beginners",
+      participants: "300-400 Participants expected",
+      color: "green-600",
+      borderColor: "border-green-600",
+      textColor: "text-green-600",
+      bgColor: "bg-green-600/10",
+      ageGroups: {
+        "18-34": {
+          men: [
+            { position: "1st", prize: "₹9,000" },
+            { position: "2nd", prize: "₹4,000" },
+            { position: "3rd", prize: "₹3,000" }
+          ],
+          women: [
+            { position: "1st", prize: "₹9,000" },
+            { position: "2nd", prize: "₹4,000" },
+            { position: "3rd", prize: "₹3,000" }
+          ]
+        },
+        "35-50": {
+          men: [
+            { position: "1st", prize: "₹5,000" },
+            { position: "2nd", prize: "₹3,000" },
+            { position: "3rd", prize: "₹3,000" }
+          ],
+          women: [
+            { position: "1st", prize: "₹5,000" },
+            { position: "2nd", prize: "₹3,000" },
+            { position: "3rd", prize: "₹3,000" }
+          ]
+        },
+        "50+": {
+          men: [
+            { position: "1st", prize: "₹5,000" },
+            { position: "2nd", prize: "₹3,000" },
+            { position: "3rd", prize: "₹2,000" }
+          ],
+          women: [
+            { position: "1st", prize: "₹5,000" },
+            { position: "2nd", prize: "₹3,000" },
+            { position: "3rd", prize: "₹2,000" }
+          ]
+        }
+      }
     }
   };
-
+  
   const specialPrizes = [
     {
       title: "King/Queen of the Mountain",
       description: "Fastest climber on designated mountain segments",
       prize: "₹15,000",
-      icon: <Mountains size={24} />
+      icon: <Mountain size={24} />
     },
     {
       title: "Sprint Champion",
@@ -110,123 +225,188 @@ const Prizes = () => {
             {/* Total Prize Pool */}
             <div className="text-center mb-16">
               <Award className="mx-auto text-hampi-orange mb-4" size={56} />
-              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-hampi-dark">₹5,00,000 Prize Pool</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-hampi-dark">₹6,00,000 Prize Pool</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                The Tour of Hampi offers one of India's largest prize pools for a cycling event, with awards distributed across all categories.
+                The Tour of Hampi offers one of India's largest prize pools for a cycling event, with ₹3,00,000 each for men and women across all categories.
               </p>
             </div>
             
             {/* Prize Tables */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-              {/* Elite Category */}
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden border-t-4 border-hampi-orange transition-all duration-300 hover:shadow-xl">
-                <div className="p-6">
-                  <Trophy className="text-hampi-orange mb-4" size={32} />
-                  <h3 className="text-2xl font-bold mb-2 text-hampi-dark">Elite Category</h3>
-                  <p className="text-gray-600 mb-6">Prize distribution for professional and experienced cyclists</p>
-                  
-                  <div className="mb-6">
-                    <h4 className="font-semibold mb-3 text-hampi-dark">Men's Division</h4>
-                    <table className="w-full">
-                      <tbody>
-                        {prizes.elite.men.map((prize, index) => (
-                          <tr key={index} className={index % 2 === 0 ? "bg-gray-50" : ""}>
-                            <td className="py-2 px-4">{prize.position}</td>
-                            <td className="py-2 px-4 text-right font-semibold">{prize.prize}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-semibold mb-3 text-hampi-dark">Women's Division</h4>
-                    <table className="w-full">
-                      <tbody>
-                        {prizes.elite.women.map((prize, index) => (
-                          <tr key={index} className={index % 2 === 0 ? "bg-gray-50" : ""}>
-                            <td className="py-2 px-4">{prize.position}</td>
-                            <td className="py-2 px-4 text-right font-semibold">{prize.prize}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+            <Tabs defaultValue="elite" className="mb-16">
+              <div className="flex justify-center mb-8">
+                <TabsList className="grid w-full max-w-md grid-cols-3">
+                  <TabsTrigger value="elite" className="text-hampi-orange data-[state=active]:bg-hampi-orange/10">Elite</TabsTrigger>
+                  <TabsTrigger value="amateur" className="text-hampi-blue data-[state=active]:bg-hampi-blue/10">Amateur</TabsTrigger>
+                  <TabsTrigger value="common" className="text-green-600 data-[state=active]:bg-green-600/10">Common</TabsTrigger>
+                </TabsList>
               </div>
               
-              {/* Amateur Category */}
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden border-t-4 border-hampi-blue transition-all duration-300 hover:shadow-xl">
-                <div className="p-6">
-                  <Trophy className="text-hampi-blue mb-4" size={32} />
-                  <h3 className="text-2xl font-bold mb-2 text-hampi-dark">Amateur Category</h3>
-                  <p className="text-gray-600 mb-6">Prize distribution for intermediate-level cyclists</p>
-                  
-                  <div className="mb-6">
-                    <h4 className="font-semibold mb-3 text-hampi-dark">Men's Division</h4>
-                    <table className="w-full">
-                      <tbody>
-                        {prizes.amateur.men.map((prize, index) => (
-                          <tr key={index} className={index % 2 === 0 ? "bg-gray-50" : ""}>
-                            <td className="py-2 px-4">{prize.position}</td>
-                            <td className="py-2 px-4 text-right font-semibold">{prize.prize}</td>
-                          </tr>
+              {Object.entries(prizeStructure).map(([categoryKey, category]) => (
+                <TabsContent key={categoryKey} value={categoryKey} className="animate-fade-in-up">
+                  <div className="mb-8">
+                    <div className={`text-center mb-8 p-6 rounded-lg ${category.bgColor}`}>
+                      <Trophy className={`mx-auto ${category.textColor} mb-4`} size={36} />
+                      <h3 className="text-2xl md:text-3xl font-bold mb-2 text-hampi-dark">{category.title} Category</h3>
+                      <p className="text-gray-600 mb-3">{category.description}</p>
+                      <div className="inline-flex items-center gap-2 font-medium">
+                        <Users size={18} className={category.textColor} />
+                        <span>{category.participants}</span>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-10">
+                      {/* Age Group Tabs */}
+                      <Tabs defaultValue="18-34" className="w-full">
+                        <TabsList className="grid w-full max-w-md grid-cols-3 mx-auto mb-6">
+                          <TabsTrigger value="18-34">18-34 years</TabsTrigger>
+                          <TabsTrigger value="35-50">35-50 years</TabsTrigger>
+                          <TabsTrigger value="50+">50+ years</TabsTrigger>
+                        </TabsList>
+                        
+                        {Object.entries(category.ageGroups).map(([ageGroup, prizes]) => (
+                          <TabsContent key={ageGroup} value={ageGroup} className="animate-fade-in">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                              {/* Men's Division */}
+                              <Card className={`border-t-4 ${category.borderColor}`}>
+                                <CardHeader>
+                                  <CardTitle className="flex items-center gap-2">
+                                    <Trophy size={20} className={category.textColor} />
+                                    <span>Men's Division</span>
+                                  </CardTitle>
+                                  <CardDescription>Age Group: {ageGroup}</CardDescription>
+                                </CardHeader>
+                                <CardContent>
+                                  <Table>
+                                    <TableHeader>
+                                      <TableRow>
+                                        <TableHead>Position</TableHead>
+                                        <TableHead className="text-right">Prize</TableHead>
+                                      </TableRow>
+                                    </TableHeader>
+                                    <TableBody>
+                                      {prizes.men.map((prize, index) => (
+                                        <TableRow key={index}>
+                                          <TableCell className="font-medium">{prize.position}</TableCell>
+                                          <TableCell className="text-right font-bold">{prize.prize}</TableCell>
+                                        </TableRow>
+                                      ))}
+                                    </TableBody>
+                                  </Table>
+                                </CardContent>
+                              </Card>
+                              
+                              {/* Women's Division */}
+                              <Card className={`border-t-4 ${category.borderColor}`}>
+                                <CardHeader>
+                                  <CardTitle className="flex items-center gap-2">
+                                    <Trophy size={20} className={category.textColor} />
+                                    <span>Women's Division</span>
+                                  </CardTitle>
+                                  <CardDescription>Age Group: {ageGroup}</CardDescription>
+                                </CardHeader>
+                                <CardContent>
+                                  <Table>
+                                    <TableHeader>
+                                      <TableRow>
+                                        <TableHead>Position</TableHead>
+                                        <TableHead className="text-right">Prize</TableHead>
+                                      </TableRow>
+                                    </TableHeader>
+                                    <TableBody>
+                                      {prizes.women.map((prize, index) => (
+                                        <TableRow key={index}>
+                                          <TableCell className="font-medium">{prize.position}</TableCell>
+                                          <TableCell className="text-right font-bold">{prize.prize}</TableCell>
+                                        </TableRow>
+                                      ))}
+                                    </TableBody>
+                                  </Table>
+                                </CardContent>
+                              </Card>
+                            </div>
+                          </TabsContent>
                         ))}
-                      </tbody>
-                    </table>
+                      </Tabs>
+                    </div>
                   </div>
-                  
-                  <div>
-                    <h4 className="font-semibold mb-3 text-hampi-dark">Women's Division</h4>
-                    <table className="w-full">
-                      <tbody>
-                        {prizes.amateur.women.map((prize, index) => (
-                          <tr key={index} className={index % 2 === 0 ? "bg-gray-50" : ""}>
-                            <td className="py-2 px-4">{prize.position}</td>
-                            <td className="py-2 px-4 text-right font-semibold">{prize.prize}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+                </TabsContent>
+              ))}
+            </Tabs>
+            
+            {/* Prize Summary */}
+            <div className="bg-gray-50 rounded-xl p-8 mb-16">
+              <h3 className="text-2xl font-bold mb-6 text-center text-hampi-dark">Prize Summary</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <Card>
+                  <CardHeader className="bg-hampi-orange/10">
+                    <CardTitle className="text-hampi-orange">Elite</CardTitle>
+                  </CardHeader>
+                  <CardContent className="pt-6">
+                    <div className="space-y-4">
+                      <div className="flex justify-between">
+                        <span className="font-medium">Men's Prizes:</span>
+                        <span className="font-bold">₹1,56,000</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="font-medium">Women's Prizes:</span>
+                        <span className="font-bold">₹1,56,000</span>
+                      </div>
+                      <div className="pt-2 border-t flex justify-between">
+                        <span className="font-semibold">Total:</span>
+                        <span className="font-bold text-hampi-orange">₹3,12,000</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+                
+                <Card>
+                  <CardHeader className="bg-hampi-blue/10">
+                    <CardTitle className="text-hampi-blue">Amateur</CardTitle>
+                  </CardHeader>
+                  <CardContent className="pt-6">
+                    <div className="space-y-4">
+                      <div className="flex justify-between">
+                        <span className="font-medium">Men's Prizes:</span>
+                        <span className="font-bold">₹87,000</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="font-medium">Women's Prizes:</span>
+                        <span className="font-bold">₹87,000</span>
+                      </div>
+                      <div className="pt-2 border-t flex justify-between">
+                        <span className="font-semibold">Total:</span>
+                        <span className="font-bold text-hampi-blue">₹1,74,000</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+                
+                <Card>
+                  <CardHeader className="bg-green-600/10">
+                    <CardTitle className="text-green-600">Common</CardTitle>
+                  </CardHeader>
+                  <CardContent className="pt-6">
+                    <div className="space-y-4">
+                      <div className="flex justify-between">
+                        <span className="font-medium">Men's Prizes:</span>
+                        <span className="font-bold">₹57,000</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="font-medium">Women's Prizes:</span>
+                        <span className="font-bold">₹57,000</span>
+                      </div>
+                      <div className="pt-2 border-t flex justify-between">
+                        <span className="font-semibold">Total:</span>
+                        <span className="font-bold text-green-600">₹1,14,000</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
               
-              {/* Open Category */}
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden border-t-4 border-green-600 transition-all duration-300 hover:shadow-xl">
-                <div className="p-6">
-                  <Trophy className="text-green-600 mb-4" size={32} />
-                  <h3 className="text-2xl font-bold mb-2 text-hampi-dark">Open Category</h3>
-                  <p className="text-gray-600 mb-6">Prize distribution for casual cyclists and beginners</p>
-                  
-                  <div className="mb-6">
-                    <h4 className="font-semibold mb-3 text-hampi-dark">Men's Division</h4>
-                    <table className="w-full">
-                      <tbody>
-                        {prizes.open.men.map((prize, index) => (
-                          <tr key={index} className={index % 2 === 0 ? "bg-gray-50" : ""}>
-                            <td className="py-2 px-4">{prize.position}</td>
-                            <td className="py-2 px-4 text-right font-semibold">{prize.prize}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-semibold mb-3 text-hampi-dark">Women's Division</h4>
-                    <table className="w-full">
-                      <tbody>
-                        {prizes.open.women.map((prize, index) => (
-                          <tr key={index} className={index % 2 === 0 ? "bg-gray-50" : ""}>
-                            <td className="py-2 px-4">{prize.position}</td>
-                            <td className="py-2 px-4 text-right font-semibold">{prize.prize}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+              <div className="text-center p-6 bg-hampi-orange/10 rounded-lg">
+                <p className="text-2xl font-bold text-hampi-dark">Total Prize Pool: <span className="text-hampi-orange">₹6,00,000</span></p>
+                <p className="text-lg text-gray-600 mt-2">27 prizes each for men and women across all categories</p>
               </div>
             </div>
             
@@ -299,15 +479,6 @@ const Prizes = () => {
                     <li>Prize money will be transferred electronically within 15 working days</li>
                   </ul>
                 </div>
-                
-                <div>
-                  <h4 className="font-semibold mb-2 text-hampi-dark">Additional Notes</h4>
-                  <ul className="list-disc pl-5 space-y-1 text-gray-600">
-                    <li>In case of a tie, prizes will be equally divided among winners</li>
-                    <li>The organizer's decision regarding prize distribution is final</li>
-                    <li>If a category has fewer than 5 participants, prize money may be adjusted</li>
-                  </ul>
-                </div>
               </div>
             </div>
             
@@ -327,115 +498,5 @@ const Prizes = () => {
     </>
   );
 };
-
-const Mountains = (props) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    {...props}
-  >
-    <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
-  </svg>
-);
-
-const Users = (props) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    {...props}
-  >
-    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-    <circle cx="9" cy="7" r="4" />
-    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-  </svg>
-);
-
-const Camera = (props) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    {...props}
-  >
-    <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" />
-    <circle cx="12" cy="13" r="3" />
-  </svg>
-);
-
-const Zap = (props) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    {...props}
-  >
-    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-  </svg>
-);
-
-const TrendingUp = (props) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    {...props}
-  >
-    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-    <polyline points="17 6 23 6 23 12" />
-  </svg>
-);
-
-const Bike = (props) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    {...props}
-  >
-    <circle cx="18.5" cy="17.5" r="3.5" />
-    <circle cx="5.5" cy="17.5" r="3.5" />
-    <circle cx="15" cy="5" r="1" />
-    <path d="M12 17.5V14l-3-3 4-3 2 3h2" />
-  </svg>
-);
 
 export default Prizes;
