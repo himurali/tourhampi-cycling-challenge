@@ -52,7 +52,7 @@ const Hero = () => {
           </div>
           
           <span className="inline-block py-1 px-3 bg-hampi-orange text-white text-sm font-medium rounded-full mb-6 animate-fade-in">
-            November 15, 2023
+            August 14-16, 2025
           </span>
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight animate-fade-in" style={{ animationDelay: "0.2s" }}>
@@ -70,7 +70,7 @@ const Hero = () => {
             </div>
             <div className="flex items-center gap-2 text-white">
               <Calendar className="text-hampi-orange" size={24} />
-              <span>November 15, 2023</span>
+              <span>August 14-16, 2025</span>
             </div>
             <div className="flex items-center gap-2 text-white">
               <MapPin className="text-hampi-orange" size={24} />
