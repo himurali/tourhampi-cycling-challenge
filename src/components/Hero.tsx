@@ -4,9 +4,9 @@ import { ArrowRight, MapPin, Calendar, Award } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-white">
       {/* Background with overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-hampi-dark/50 to-hampi-dark/70">
+      <div className="absolute inset-0 bg-gradient-to-br from-white/80 to-white/90">
         <div 
           className="absolute inset-0 bg-cover bg-center" 
           style={{ 
@@ -17,22 +17,22 @@ const Hero = () => {
       </div>
 
       {/* Chain ring animation */}
-      <div className="absolute right-[-10%] md:right-[-5%] top-[20%] w-[300px] h-[300px] md:w-[500px] md:h-[500px] opacity-10 pointer-events-none">
+      <div className="absolute right-[-10%] md:right-[-5%] top-[20%] w-[300px] h-[300px] md:w-[500px] md:h-[500px] opacity-20 pointer-events-none">
         <div className="relative w-full h-full">
           <svg viewBox="0 0 200 200" className="w-full h-full animate-spin-slow">
-            <circle cx="100" cy="100" r="90" fill="none" stroke="white" strokeWidth="4" strokeDasharray="5,5" />
+            <circle cx="100" cy="100" r="90" fill="none" stroke="black" strokeWidth="4" strokeDasharray="5,5" />
             {/* Create chain links around the circle */}
             {Array.from({ length: 20 }).map((_, i) => {
               const angle = (i * 18) * Math.PI / 180;
               const x = 100 + 90 * Math.cos(angle);
               const y = 100 + 90 * Math.sin(angle);
-              return <circle key={i} cx={x} cy={y} r="5" fill="white" />;
+              return <circle key={i} cx={x} cy={y} r="5" fill="black" />;
             })}
           </svg>
           
           {/* Add the logo image to the center of the spinning chain */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-[180px] h-[180px] md:w-[300px] md:h-[300px] rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center p-3">
+            <div className="w-[180px] h-[180px] md:w-[300px] md:h-[300px] rounded-full bg-white/60 backdrop-blur-sm flex items-center justify-center p-3">
               <img 
                 src="/lovable-uploads/58f1b9e8-bad7-4091-beca-dce1e05d6c80.png" 
                 alt="Tour of Hampi Logo" 
@@ -58,24 +58,24 @@ const Hero = () => {
             August 14-16, 2025
           </span>
           
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight animate-fade-in" style={{ animationDelay: "0.2s" }}>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-hampi-orange leading-tight animate-fade-in" style={{ animationDelay: "0.2s" }}>
             Tour of Hampi
           </h1>
           
-          <h2 className="text-xl md:text-2xl lg:text-3xl text-white/80 mt-4 mb-6 animate-fade-in" style={{ animationDelay: "0.4s" }}>
+          <h2 className="text-xl md:text-2xl lg:text-3xl text-hampi-dark/80 mt-4 mb-6 animate-fade-in" style={{ animationDelay: "0.4s" }}>
             Experience the ultimate cycling challenge amidst the ancient ruins of Hampi
           </h2>
           
           <div className="flex flex-wrap gap-6 mt-2 mb-10 justify-center md:justify-start animate-fade-in" style={{ animationDelay: "0.6s" }}>
-            <div className="flex items-center gap-2 text-white">
+            <div className="flex items-center gap-2 text-hampi-dark">
               <Award className="text-hampi-orange" size={24} />
               <span>₹5,00,000 Prize Pool</span>
             </div>
-            <div className="flex items-center gap-2 text-white">
+            <div className="flex items-center gap-2 text-hampi-dark">
               <Calendar className="text-hampi-orange" size={24} />
               <span>August 14-16, 2025</span>
             </div>
-            <div className="flex items-center gap-2 text-white">
+            <div className="flex items-center gap-2 text-hampi-dark">
               <MapPin className="text-hampi-orange" size={24} />
               <span>Hampi, Karnataka</span>
             </div>
