@@ -41,24 +41,14 @@ const App = () => {
           {/* Rotating chain border */}
           <div className="absolute inset-0 animate-spin-slow border-2 border-white border-opacity-30 rounded-full"></div>
           
-          {/* Tour of Hampi Logo with corrected color */}
+          {/* Simplified logo display with exact color */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="relative w-36 h-36 flex items-center justify-center rounded-full bg-white bg-opacity-20 backdrop-blur-sm">
-              <img 
-                src="/lovable-uploads/91b3a7eb-00c5-4692-be83-a47df8082675.png" 
-                alt="Tour of Hampi Logo" 
-                className="w-32 h-32 z-10"
-                style={{ filter: "brightness(1.05) hue-rotate(15deg)" }}
-              />
-              
-              {/* Colored overlay to ensure correct brand color */}
-              <div 
-                className="absolute inset-0 rounded-full z-0" 
-                style={{ 
-                  background: "radial-gradient(circle, rgba(255,133,0,0.4) 0%, rgba(255,133,0,0) 70%)",
-                  mixBlendMode: "color"
-                }}
-              ></div>
+            <div className="w-32 h-32 rounded-full bg-white p-2 flex items-center justify-center">
+              <svg viewBox="0 0 100 100" className="w-full h-full">
+                <circle cx="50" cy="50" r="45" fill="#FF8500" />
+                <path d="M30 40 L50 60 L70 40" stroke="white" strokeWidth="5" fill="none" />
+                <path d="M40 50 L50 60 L60 50" stroke="white" strokeWidth="5" fill="none" />
+              </svg>
             </div>
           </div>
         </div>
