@@ -1,14 +1,38 @@
-
 import { useEffect, useState } from "react";
 import { CheckCircle, Calendar, User, Mail, Phone, AlertTriangle } from "lucide-react";
 
+interface FormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  gender: string;
+  dateOfBirth: string;
+  category: string;
+  emergencyContactName: string;
+  emergencyContactPhone: string;
+  acceptTerms: boolean;
+}
+
+interface FormErrors {
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  phone?: string;
+  gender?: string;
+  dateOfBirth?: string;
+  category?: string;
+  emergencyContactName?: string;
+  emergencyContactPhone?: string;
+  acceptTerms?: string;
+}
+
 const Register = () => {
   useEffect(() => {
-    // Scroll to top when the component mounts
     window.scrollTo(0, 0);
   }, []);
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
     email: "",
@@ -23,9 +47,9 @@ const Register = () => {
 
   const [activeStep, setActiveStep] = useState(1);
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formErrors, setFormErrors] = useState({});
+  const [formErrors, setFormErrors] = useState<FormErrors>({});
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     const { name, value, type, checked } = e.target;
     setFormData({
       ...formData,
@@ -33,8 +57,8 @@ const Register = () => {
     });
   };
 
-  const validateStep = (step) => {
-    let errors = {};
+  const validateStep = (step: number) => {
+    let errors: FormErrors = {};
     let isValid = true;
 
     if (step === 1) {
@@ -101,10 +125,9 @@ const Register = () => {
     window.scrollTo(0, 0);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     if (validateStep(activeStep)) {
-      // Here would be the API call to submit the form
       console.log("Form submitted:", formData);
       setFormSubmitted(true);
       window.scrollTo(0, 0);
@@ -516,7 +539,6 @@ const Register = () => {
 
   return (
     <>
-      {/* Page Header */}
       <div className="relative pt-32 pb-20 bg-hampi-orange overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1493676304819-0d7a8d026dcf?q=80&w=1374&auto=format&fit=crop')" }}></div>
         <div className="container mx-auto px-4 relative z-10">
@@ -526,7 +548,6 @@ const Register = () => {
           </div>
         </div>
         
-        {/* Wave separator */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto">
             <path 
@@ -538,7 +559,6 @@ const Register = () => {
         </div>
       </div>
       
-      {/* Main Content */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">

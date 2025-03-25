@@ -3,12 +3,12 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route as RouterRoute } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Categories from "./pages/Categories";
-import Route from "./pages/Route";
+import RouteInfo from "./pages/Route";
 import Prizes from "./pages/Prizes";
 import Rules from "./pages/Rules";
 import Register from "./pages/Register";
@@ -57,16 +57,16 @@ const App = () => {
             <Navbar />
             <main className="flex-grow">
               <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/categories" element={<Categories />} />
-                <Route path="/route" element={<Route />} />
-                <Route path="/prizes" element={<Prizes />} />
-                <Route path="/rules" element={<Rules />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/sponsors" element={<Sponsors />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="*" element={<NotFound />} />
+                <RouterRoute path="/" element={<Index />} />
+                <RouterRoute path="/about" element={<About />} />
+                <RouterRoute path="/categories" element={<Categories />} />
+                <RouterRoute path="/route" element={<RouteInfo />} />
+                <RouterRoute path="/prizes" element={<Prizes />} />
+                <RouterRoute path="/rules" element={<Rules />} />
+                <RouterRoute path="/register" element={<Register />} />
+                <RouterRoute path="/sponsors" element={<Sponsors />} />
+                <RouterRoute path="/contact" element={<Contact />} />
+                <RouterRoute path="*" element={<NotFound />} />
               </Routes>
             </main>
             <Footer />
