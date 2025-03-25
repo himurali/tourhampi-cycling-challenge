@@ -6,12 +6,12 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background with overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-hampi-dark/50 to-hampi-dark/80">
+      <div className="absolute inset-0 bg-gradient-to-br from-hampi-dark/50 to-hampi-dark/70">
         <div 
           className="absolute inset-0 bg-cover bg-center" 
           style={{ 
-            backgroundImage: "url('https://images.unsplash.com/photo-1575550959106-5a7defe28b56?q=80&w=2070&auto=format&fit=crop')",
-            filter: "blur(3px) brightness(0.8)"
+            backgroundImage: "url('/lovable-uploads/1de783c8-8821-485d-8b76-f730225b5a29.png')",
+            filter: "brightness(0.9)"
           }}
         ></div>
       </div>
