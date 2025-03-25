@@ -29,31 +29,20 @@ const Hero = () => {
               return <circle key={i} cx={x} cy={y} r="5" fill="white" />;
             })}
           </svg>
-          {/* Logo in the center with exact brand color */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="bg-white/30 rounded-full p-3 backdrop-blur-sm">
-              <div className="w-28 h-28 rounded-full bg-white flex items-center justify-center">
-                <svg viewBox="0 0 100 100" className="w-[90%] h-[90%]">
-                  <circle cx="50" cy="50" r="45" fill="#FF8500" />
-                  <path d="M30 40 L50 60 L70 40" stroke="white" strokeWidth="5" fill="none" />
-                  <path d="M40 50 L50 60 L60 50" stroke="white" strokeWidth="5" fill="none" />
-                </svg>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
       <div className="container mx-auto px-4 pt-20 pb-10 relative z-10">
         <div className="flex flex-col items-center md:items-start text-center md:text-left max-w-4xl mx-auto md:mx-0">
-          {/* Logo at the top for mobile with exact brand color */}
-          <div className="mb-8 md:hidden">
+          {/* Logo at the top for mobile */}
+          <div className="mb-8">
             <div className="w-32 h-32 rounded-full bg-white p-2 flex items-center justify-center">
-              <svg viewBox="0 0 100 100" className="w-full h-full">
-                <circle cx="50" cy="50" r="45" fill="#FF8500" />
-                <path d="M30 40 L50 60 L70 40" stroke="white" strokeWidth="5" fill="none" />
-                <path d="M40 50 L50 60 L60 50" stroke="white" strokeWidth="5" fill="none" />
-              </svg>
+              <div className="w-full h-full rounded-full bg-[#FF8500] flex items-center justify-center">
+                <svg viewBox="0 0 100 100" className="w-[60%] h-[60%]">
+                  <path d="M30 40 L50 60 L70 40" stroke="white" strokeWidth="5" fill="none" />
+                  <path d="M40 50 L50 60 L60 50" stroke="white" strokeWidth="5" fill="none" />
+                </svg>
+              </div>
             </div>
           </div>
           
