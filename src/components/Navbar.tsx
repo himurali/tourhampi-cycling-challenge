@@ -44,11 +44,15 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  // Always show solid background for pages other than home
+  const isHomePage = location.pathname === "/";
+  const shouldShowSolidBackground = scrolled || !isHomePage;
+
   return (
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/80 backdrop-blur-md shadow-md py-2"
+        shouldShowSolidBackground
+          ? "bg-white shadow-md py-2"
           : "bg-transparent py-4"
       }`}
     >
