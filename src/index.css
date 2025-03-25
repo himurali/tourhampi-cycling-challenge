@@ -16,7 +16,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 10%;
 
-    --primary: 30 85% 57%;
+    --primary: 33 100% 50%; /* Updated to match #FF8500 */
     --primary-foreground: 0 0% 100%;
 
     --secondary: 210 71% 51%;
@@ -33,7 +33,7 @@
 
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 30 85% 57%;
+    --ring: 33 100% 50%; /* Updated to match #FF8500 */
 
     --radius: 0.5rem;
   }
@@ -109,10 +109,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(240, 137, 53, 0.5);
+  background: rgba(255, 133, 0, 0.5); /* Updated to #FF8500 */
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(240, 137, 53, 0.8);
+  background: rgba(255, 133, 0, 0.8); /* Updated to #FF8500 */
 }

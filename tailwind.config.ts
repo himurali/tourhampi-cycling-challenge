@@ -68,7 +68,7 @@ export default {
           ring: 'hsl(var(--sidebar-ring))'
         },
         hampi: {
-          orange: '#F08935',
+          orange: '#FF8500', // Updated to match exactly #ff8500
           blue: '#3B78C9',
           stone: '#E8E6E1',
           dark: '#1A1A1A',
