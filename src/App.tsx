@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -14,6 +13,7 @@ import Rules from "./pages/Rules";
 import Register from "./pages/Register";
 import Sponsors from "./pages/Sponsors";
 import Contact from "./pages/Contact";
+import CSR from "./pages/CSR";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -71,6 +71,7 @@ const App = () => {
                 <RouterRoute path="/register" element={<Register />} />
                 <RouterRoute path="/sponsors" element={<Sponsors />} />
                 <RouterRoute path="/contact" element={<Contact />} />
+                <RouterRoute path="/csr" element={<CSR />} />
                 <RouterRoute path="*" element={<NotFound />} />
               </Routes>
             </main>
