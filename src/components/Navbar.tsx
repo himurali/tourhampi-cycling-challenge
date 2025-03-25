@@ -53,7 +53,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-2">
           <img
-            src="/lovable-uploads/a60baad1-ca88-4337-9ca2-9ea9dfc7c585.png"
+            src="/lovable-uploads/91b3a7eb-00c5-4692-be83-a47df8082675.png"
             alt="Tour of Hampi Logo"
             className="h-12 w-auto"
           />

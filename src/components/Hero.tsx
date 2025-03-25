@@ -16,22 +16,33 @@ const Hero = () => {
         ></div>
       </div>
 
-      {/* Chain ring animation */}
+      {/* Chain ring animation with logo */}
       <div className="absolute right-[-10%] md:right-[-5%] top-[20%] w-[300px] h-[300px] md:w-[500px] md:h-[500px] opacity-10 pointer-events-none">
-        <svg viewBox="0 0 200 200" className="w-full h-full animate-spin-slow">
-          <circle cx="100" cy="100" r="90" fill="none" stroke="white" strokeWidth="4" strokeDasharray="5,5" />
-          {/* Create chain links around the circle */}
-          {Array.from({ length: 20 }).map((_, i) => {
-            const angle = (i * 18) * Math.PI / 180;
-            const x = 100 + 90 * Math.cos(angle);
-            const y = 100 + 90 * Math.sin(angle);
-            return <circle key={i} cx={x} cy={y} r="5" fill="white" />;
-          })}
-        </svg>
+        <div className="relative w-full h-full">
+          <svg viewBox="0 0 200 200" className="w-full h-full animate-spin-slow">
+            <circle cx="100" cy="100" r="90" fill="none" stroke="white" strokeWidth="4" strokeDasharray="5,5" />
+            {/* Create chain links around the circle */}
+            {Array.from({ length: 20 }).map((_, i) => {
+              const angle = (i * 18) * Math.PI / 180;
+              const x = 100 + 90 * Math.cos(angle);
+              const y = 100 + 90 * Math.sin(angle);
+              return <circle key={i} cx={x} cy={y} r="5" fill="white" />;
+            })}
+          </svg>
+        </div>
       </div>
 
       <div className="container mx-auto px-4 pt-20 pb-10 relative z-10">
         <div className="flex flex-col items-center md:items-start text-center md:text-left max-w-4xl mx-auto md:mx-0">
+          {/* Logo at the top for mobile */}
+          <div className="mb-8 md:hidden">
+            <img 
+              src="/lovable-uploads/91b3a7eb-00c5-4692-be83-a47df8082675.png" 
+              alt="Tour of Hampi Logo"
+              className="w-32 h-32"
+            />
+          </div>
+          
           <span className="inline-block py-1 px-3 bg-hampi-orange text-white text-sm font-medium rounded-full mb-6 animate-fade-in">
             November 15, 2023
           </span>

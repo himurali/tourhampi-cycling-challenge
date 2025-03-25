@@ -35,13 +35,18 @@ const App = () => {
   if (isLoading) {
     return (
       <div className="fixed inset-0 bg-hampi-orange flex items-center justify-center">
-        <div className="relative w-32 h-32">
-          <img 
-            src="/lovable-uploads/a60baad1-ca88-4337-9ca2-9ea9dfc7c585.png" 
-            alt="Tour of Hampi Logo" 
-            className="w-full h-full"
-          />
-          <div className="absolute inset-0 animate-spin-slow border-4 border-hampi-light border-opacity-30 rounded-full"></div>
+        <div className="relative w-40 h-40">
+          {/* Rotating chain border */}
+          <div className="absolute inset-0 animate-spin-slow border-2 border-white border-opacity-30 rounded-full"></div>
+          
+          {/* New Tour of Hampi Logo */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <img 
+              src="/lovable-uploads/91b3a7eb-00c5-4692-be83-a47df8082675.png" 
+              alt="Tour of Hampi Logo" 
+              className="w-36 h-36 z-10"
+            />
+          </div>
         </div>
       </div>
     );
