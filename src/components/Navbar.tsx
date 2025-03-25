@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, FileText } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const Navbar = () => {
@@ -18,6 +18,7 @@ const Navbar = () => {
     { name: "Prizes", path: "/prizes" },
     { name: "Rules", path: "/rules" },
     { name: "CSR", path: "/csr" },
+    { name: "Docs", path: "/docs", icon: FileText },
     { name: "Sponsors", path: "/sponsors" },
     { name: "Contact", path: "/contact" },
   ];
@@ -77,7 +78,7 @@ const Navbar = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`relative font-medium transition-all duration-300 hover:text-hampi-orange text-sm 
+                className={`relative font-medium transition-all duration-300 hover:text-hampi-orange text-sm flex items-center gap-1
                   ${
                     location.pathname === item.path
                       ? "text-hampi-orange"
@@ -92,7 +93,7 @@ const Navbar = () => {
                       : ""
                   }`}
               >
-                {item.name}
+                {item.icon && <item.icon size={16} />} {item.name}
               </Link>
             ))}
             <Link
@@ -116,13 +117,13 @@ const Navbar = () => {
             <Link
               key={item.path}
               to={item.path}
-              className={`text-xl font-medium ${
+              className={`text-xl font-medium flex items-center gap-2 ${
                 location.pathname === item.path
                   ? "text-hampi-orange"
                   : "text-hampi-dark"
               }`}
             >
-              {item.name}
+              {item.icon && <item.icon size={20} />} {item.name}
             </Link>
           ))}
           <Link
