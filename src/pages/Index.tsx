@@ -1,12 +1,22 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useEffect } from "react";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Categories from "@/components/Categories";
+import RouteMap from "@/components/RouteMap";
 
 const Index = () => {
+  useEffect(() => {
+    // Scroll to top when the component mounts
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div>
+      <Hero />
+      <About />
+      <Categories />
+      <RouteMap />
     </div>
   );
 };
