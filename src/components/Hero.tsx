@@ -16,80 +16,77 @@ const Hero = () => {
         ></div>
       </div>
 
-      {/* Logo displayed prominently in center */}
-      <div className="absolute right-[50%] transform translate-x-[50%] top-[20%] z-20 w-[250px] h-[250px] md:w-[400px] md:h-[400px]">
-        <div className="w-full h-full flex items-center justify-center">
-          <div className="w-[180px] h-[180px] md:w-[300px] md:h-[300px] rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center p-3">
-            <img 
-              src="/lovable-uploads/58f1b9e8-bad7-4091-beca-dce1e05d6c80.png" 
-              alt="Tour of Hampi Logo" 
-              className="w-full h-auto opacity-100" 
-            />
-          </div>
-        </div>
-      </div>
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center min-h-[80vh]">
+          {/* Left Column: Logo and Animation */}
+          <div className="relative flex items-center justify-center h-[400px] md:h-[600px]">
+            {/* Chain ring animation behind the logo */}
+            <div className="absolute z-10 w-[300px] h-[300px] md:w-[400px] md:h-[400px] opacity-20 pointer-events-none">
+              <div className="relative w-full h-full">
+                <svg viewBox="0 0 200 200" className="w-full h-full animate-spin-slow">
+                  <circle cx="100" cy="100" r="90" fill="none" stroke="black" strokeWidth="4" strokeDasharray="5,5" />
+                  {/* Create chain links around the circle */}
+                  {Array.from({ length: 20 }).map((_, i) => {
+                    const angle = (i * 18) * Math.PI / 180;
+                    const x = 100 + 90 * Math.cos(angle);
+                    const y = 100 + 90 * Math.sin(angle);
+                    return <circle key={i} cx={x} cy={y} r="5" fill="black" />;
+                  })}
+                </svg>
+              </div>
+            </div>
 
-      {/* Chain ring animation behind the logo */}
-      <div className="absolute right-[50%] transform translate-x-[50%] top-[20%] z-10 w-[300px] h-[300px] md:w-[500px] md:h-[500px] opacity-20 pointer-events-none">
-        <div className="relative w-full h-full">
-          <svg viewBox="0 0 200 200" className="w-full h-full animate-spin-slow">
-            <circle cx="100" cy="100" r="90" fill="none" stroke="black" strokeWidth="4" strokeDasharray="5,5" />
-            {/* Create chain links around the circle */}
-            {Array.from({ length: 20 }).map((_, i) => {
-              const angle = (i * 18) * Math.PI / 180;
-              const x = 100 + 90 * Math.cos(angle);
-              const y = 100 + 90 * Math.sin(angle);
-              return <circle key={i} cx={x} cy={y} r="5" fill="black" />;
-            })}
-          </svg>
-        </div>
-      </div>
+            {/* Logo displayed prominently */}
+            <div className="relative z-20 w-[220px] h-[220px] md:w-[300px] md:h-[300px]">
+              <div className="w-full h-full flex items-center justify-center">
+                <div className="w-full h-full rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center p-3">
+                  <img 
+                    src="/lovable-uploads/58f1b9e8-bad7-4091-beca-dce1e05d6c80.png" 
+                    alt="Tour of Hampi Logo" 
+                    className="w-full h-auto opacity-100" 
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
 
-      <div className="container mx-auto px-4 pt-20 pb-10 relative z-10">
-        <div className="flex flex-col items-center md:items-start text-center md:text-left max-w-4xl mx-auto md:mx-0">
-          {/* Logo at the top for mobile */}
-          <div className="mb-8 md:hidden">
-            <img 
-              src="/lovable-uploads/58f1b9e8-bad7-4091-beca-dce1e05d6c80.png" 
-              alt="Tour of Hampi Logo" 
-              className="w-40 h-auto"
-            />
-          </div>
-          
-          <span className="inline-block py-1 px-3 bg-hampi-orange text-white text-sm font-medium rounded-full mb-6 animate-fade-in">
-            August 14-16, 2025
-          </span>
-          
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-hampi-orange leading-tight animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            Tour of Hampi
-          </h1>
-          
-          <h2 className="text-xl md:text-2xl lg:text-3xl text-hampi-dark/80 mt-4 mb-6 animate-fade-in" style={{ animationDelay: "0.4s" }}>
-            Experience the ultimate cycling challenge amidst the ancient ruins of Hampi
-          </h2>
-          
-          <div className="flex flex-wrap gap-6 mt-2 mb-10 justify-center md:justify-start animate-fade-in" style={{ animationDelay: "0.6s" }}>
-            <div className="flex items-center gap-2 text-hampi-dark">
-              <Award className="text-hampi-orange" size={24} />
-              <span>₹5,00,000 Prize Pool</span>
+          {/* Right Column: Content */}
+          <div className="flex flex-col items-center md:items-start text-center md:text-left">
+            <span className="inline-block py-1 px-3 bg-hampi-orange text-white text-sm font-medium rounded-full mb-6 animate-fade-in">
+              August 14-16, 2025
+            </span>
+            
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-hampi-orange leading-tight animate-fade-in" style={{ animationDelay: "0.2s" }}>
+              Tour of Hampi
+            </h1>
+            
+            <h2 className="text-xl md:text-2xl lg:text-3xl text-hampi-dark/80 mt-4 mb-6 animate-fade-in" style={{ animationDelay: "0.4s" }}>
+              Experience the ultimate cycling challenge amidst the ancient ruins of Hampi
+            </h2>
+            
+            <div className="flex flex-wrap gap-6 mt-2 mb-10 justify-center md:justify-start animate-fade-in" style={{ animationDelay: "0.6s" }}>
+              <div className="flex items-center gap-2 text-hampi-dark">
+                <Award className="text-hampi-orange" size={24} />
+                <span>₹5,00,000 Prize Pool</span>
+              </div>
+              <div className="flex items-center gap-2 text-hampi-dark">
+                <Calendar className="text-hampi-orange" size={24} />
+                <span>August 14-16, 2025</span>
+              </div>
+              <div className="flex items-center gap-2 text-hampi-dark">
+                <MapPin className="text-hampi-orange" size={24} />
+                <span>Hampi, Karnataka</span>
+              </div>
             </div>
-            <div className="flex items-center gap-2 text-hampi-dark">
-              <Calendar className="text-hampi-orange" size={24} />
-              <span>August 14-16, 2025</span>
+            
+            <div className="flex flex-col sm:flex-row gap-4 mt-6 animate-fade-in" style={{ animationDelay: "0.8s" }}>
+              <Link to="/register" className="btn-primary">
+                Register Now <ArrowRight size={18} />
+              </Link>
+              <Link to="/route" className="btn-outline">
+                View Race Route <MapPin size={18} />
+              </Link>
             </div>
-            <div className="flex items-center gap-2 text-hampi-dark">
-              <MapPin className="text-hampi-orange" size={24} />
-              <span>Hampi, Karnataka</span>
-            </div>
-          </div>
-          
-          <div className="flex flex-col sm:flex-row gap-4 mt-6 animate-fade-in" style={{ animationDelay: "0.8s" }}>
-            <Link to="/register" className="btn-primary">
-              Register Now <ArrowRight size={18} />
-            </Link>
-            <Link to="/route" className="btn-outline">
-              View Race Route <MapPin size={18} />
-            </Link>
           </div>
         </div>
       </div>
