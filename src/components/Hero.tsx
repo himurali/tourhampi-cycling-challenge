@@ -36,7 +36,7 @@ const Hero = () => {
               <img 
                 src="/lovable-uploads/58f1b9e8-bad7-4091-beca-dce1e05d6c80.png" 
                 alt="Tour of Hampi Logo" 
-                className="w-full h-auto"
+                className="w-full h-auto opacity-100" 
               />
             </div>
           </div>
