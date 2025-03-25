@@ -1,8 +1,7 @@
-
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Bike, Award, Mountains, Timer, Users, ArrowRight, CheckCircle } from "lucide-react";
+import { Bike, Award, Mountain, Timer, Users, ArrowRight, CheckCircle } from "lucide-react";
 
 const Categories = () => {
   useEffect(() => {
@@ -310,7 +309,7 @@ const Categories = () => {
                         </div>
                         
                         <div className="flex flex-col items-center p-3 bg-gray-50 rounded-lg">
-                          <Mountains size={20} className="text-hampi-orange mb-1" />
+                          <Mountain size={20} className="text-hampi-orange mb-1" />
                           <span className="text-xs text-gray-500">Elevation</span>
                           <span className="text-sm font-bold text-hampi-dark">
                             {category.elevation}

@@ -1,7 +1,6 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Bike, Award, Mountains, Timer, Users, ArrowRight } from "lucide-react";
+import { Bike, Award, Mountain, Timer, Users, ArrowRight } from "lucide-react";
 
 const Categories = () => {
   const [activeTab, setActiveTab] = useState("elite");
@@ -104,7 +103,7 @@ const Categories = () => {
                     </div>
                     
                     <div className="flex flex-col items-center p-4 bg-gray-50 rounded-lg">
-                      <Mountains size={24} className="text-hampi-orange mb-2" />
+                      <Mountain size={24} className="text-hampi-orange mb-2" />
                       <span className="text-sm text-gray-600">Elevation</span>
                       <span className="text-lg font-bold text-hampi-dark">
                         {categories[activeTab as keyof typeof categories].elevation}
