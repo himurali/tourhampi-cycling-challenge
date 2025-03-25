@@ -16,7 +16,7 @@ const Hero = () => {
         ></div>
       </div>
 
-      {/* Chain ring animation with logo */}
+      {/* Chain ring animation */}
       <div className="absolute right-[-10%] md:right-[-5%] top-[20%] w-[300px] h-[300px] md:w-[500px] md:h-[500px] opacity-10 pointer-events-none">
         <div className="relative w-full h-full">
           <svg viewBox="0 0 200 200" className="w-full h-full animate-spin-slow">
@@ -29,21 +29,29 @@ const Hero = () => {
               return <circle key={i} cx={x} cy={y} r="5" fill="white" />;
             })}
           </svg>
+          
+          {/* Add the logo image to the center of the spinning chain */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-[180px] h-[180px] md:w-[300px] md:h-[300px] rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center p-3">
+              <img 
+                src="/lovable-uploads/58f1b9e8-bad7-4091-beca-dce1e05d6c80.png" 
+                alt="Tour of Hampi Logo" 
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
         </div>
       </div>
 
       <div className="container mx-auto px-4 pt-20 pb-10 relative z-10">
         <div className="flex flex-col items-center md:items-start text-center md:text-left max-w-4xl mx-auto md:mx-0">
           {/* Logo at the top for mobile */}
-          <div className="mb-8">
-            <div className="w-32 h-32 rounded-full bg-white p-2 flex items-center justify-center">
-              <div className="w-full h-full rounded-full bg-[#FF8500] flex items-center justify-center">
-                <svg viewBox="0 0 100 100" className="w-[60%] h-[60%]">
-                  <path d="M30 40 L50 60 L70 40" stroke="white" strokeWidth="5" fill="none" />
-                  <path d="M40 50 L50 60 L60 50" stroke="white" strokeWidth="5" fill="none" />
-                </svg>
-              </div>
-            </div>
+          <div className="mb-8 md:hidden">
+            <img 
+              src="/lovable-uploads/58f1b9e8-bad7-4091-beca-dce1e05d6c80.png" 
+              alt="Tour of Hampi Logo" 
+              className="w-40 h-auto"
+            />
           </div>
           
           <span className="inline-block py-1 px-3 bg-hampi-orange text-white text-sm font-medium rounded-full mb-6 animate-fade-in">
