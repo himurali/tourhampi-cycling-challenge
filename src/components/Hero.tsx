@@ -29,13 +29,15 @@ const Hero = () => {
               return <circle key={i} cx={x} cy={y} r="5" fill="white" />;
             })}
           </svg>
-          {/* Add logo in the center of the rotating chain */}
+          {/* Add logo in the center of the rotating chain with improved visibility */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <img 
-              src="/lovable-uploads/91b3a7eb-00c5-4692-be83-a47df8082675.png" 
-              alt="Tour of Hampi Logo"
-              className="w-32 h-32"
-            />
+            <div className="bg-white/30 rounded-full p-2 backdrop-blur-sm">
+              <img 
+                src="/lovable-uploads/91b3a7eb-00c5-4692-be83-a47df8082675.png" 
+                alt="Tour of Hampi Logo"
+                className="w-32 h-32 opacity-100"
+              />
+            </div>
           </div>
         </div>
       </div>
