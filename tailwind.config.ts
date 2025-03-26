@@ -125,7 +125,7 @@ export default {
       },
       fontFamily: {
         sans: ['Montserrat', 'sans-serif'],
-        display: ['Libre Baskerville', 'serif'],
+        display: ['Montserrat', 'sans-serif'], // Changed to use the same font as sans
       },
     },
   },

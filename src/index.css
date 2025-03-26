@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -49,7 +49,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-semibold tracking-tight;
+    @apply font-sans font-semibold tracking-tight; /* Changed from font-display to font-sans */
   }
 }
 
