@@ -5,6 +5,7 @@ import DocsSidebar from "@/components/docs/DocsSidebar";
 import DocsContent from "@/components/docs/DocsContent";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { docsStructure } from "@/data/docs-structure";
+import AnimateOnScroll from "@/components/AnimateOnScroll";
 
 const Docs = () => {
   const location = useLocation();
@@ -59,18 +60,26 @@ const Docs = () => {
 
   return (
     <div className="pt-24 pb-12 container mx-auto px-4">
-      <h1 className="text-3xl md:text-4xl font-display font-bold mb-8 text-center">
-        Tour of Hampi Documentation
-      </h1>
+      <AnimateOnScroll animation="fade-in">
+        <h1 className="text-3xl md:text-4xl font-display font-bold mb-8 text-center">
+          Tour of Hampi Documentation
+        </h1>
+      </AnimateOnScroll>
       
-      {generateBreadcrumbs()}
+      <AnimateOnScroll animation="fade-in" delay={100}>
+        {generateBreadcrumbs()}
+      </AnimateOnScroll>
       
       <div className="flex flex-col md:flex-row gap-8">
         <div className="md:w-1/4 lg:w-1/5">
-          <DocsSidebar currentDoc={currentDoc} />
+          <AnimateOnScroll animation="slide-in" delay={200}>
+            <DocsSidebar currentDoc={currentDoc} />
+          </AnimateOnScroll>
         </div>
         <div className="md:w-3/4 lg:w-4/5">
-          <DocsContent docPath={currentDoc} />
+          <AnimateOnScroll animation="fade-in" delay={300}>
+            <DocsContent docPath={currentDoc} />
+          </AnimateOnScroll>
         </div>
       </div>
     </div>

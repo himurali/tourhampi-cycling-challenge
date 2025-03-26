@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Mail, Phone, MapPin, Send, AlertTriangle } from "lucide-react";
+import AnimateOnScroll from "@/components/AnimateOnScroll";
 
 // Define proper types for the form data
 interface ContactFormData {
@@ -100,10 +101,12 @@ const Contact = () => {
       <div className="relative pt-32 pb-20 bg-hampi-dark overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1517423440433-e5d5791aa35d?q=80&w=1470&auto=format&fit=crop')" }}></div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Contact Us</h1>
-            <p className="text-xl text-white/90">We'd love to hear from you! Reach out with any questions, feedback, or partnership inquiries.</p>
-          </div>
+          <AnimateOnScroll animation="fade-in">
+            <div className="max-w-4xl">
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Contact Us</h1>
+              <p className="text-xl text-white/90">We'd love to hear from you! Reach out with any questions, feedback, or partnership inquiries.</p>
+            </div>
+          </AnimateOnScroll>
         </div>
         
         {/* Wave separator */}
@@ -123,183 +126,187 @@ const Contact = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden p-8">
-              <h3 className="text-2xl font-bold text-hampi-dark mb-6">Send us a Message</h3>
-              
-              {!formSubmitted ? (
-                <form onSubmit={handleSubmit}>
-                  <div className="mb-4">
-                    <label className="block text-gray-700 font-medium mb-2" htmlFor="name">
-                      Your Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-hampi-orange ${
-                        formErrors.name ? "border-red-500" : "border-gray-300"
-                      }`}
-                      placeholder="Your full name"
-                    />
-                    {formErrors.name && (
-                      <p className="text-red-500 text-sm mt-1">{formErrors.name}</p>
-                    )}
+            <AnimateOnScroll animation="slide-in" delay={100}>
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden p-8">
+                <h3 className="text-2xl font-bold text-hampi-dark mb-6">Send us a Message</h3>
+                
+                {!formSubmitted ? (
+                  <form onSubmit={handleSubmit}>
+                    <div className="mb-4">
+                      <label className="block text-gray-700 font-medium mb-2" htmlFor="name">
+                        Your Name
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-hampi-orange ${
+                          formErrors.name ? "border-red-500" : "border-gray-300"
+                        }`}
+                        placeholder="Your full name"
+                      />
+                      {formErrors.name && (
+                        <p className="text-red-500 text-sm mt-1">{formErrors.name}</p>
+                      )}
+                    </div>
+                    
+                    <div className="mb-4">
+                      <label className="block text-gray-700 font-medium mb-2" htmlFor="email">
+                        Your Email
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-hampi-orange ${
+                          formErrors.email ? "border-red-500" : "border-gray-300"
+                        }`}
+                        placeholder="Your email address"
+                      />
+                      {formErrors.email && (
+                        <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>
+                      )}
+                    </div>
+                    
+                    <div className="mb-4">
+                      <label className="block text-gray-700 font-medium mb-2" htmlFor="subject">
+                        Subject
+                      </label>
+                      <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
+                        className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-hampi-orange ${
+                          formErrors.subject ? "border-red-500" : "border-gray-300"
+                        }`}
+                        placeholder="Subject of your message"
+                      />
+                      {formErrors.subject && (
+                        <p className="text-red-500 text-sm mt-1">{formErrors.subject}</p>
+                      )}
+                    </div>
+                    
+                    <div className="mb-6">
+                      <label className="block text-gray-700 font-medium mb-2" htmlFor="message">
+                        Message
+                      </label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        rows={5}
+                        className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-hampi-orange ${
+                          formErrors.message ? "border-red-500" : "border-gray-300"
+                        }`}
+                        placeholder="Your message here..."
+                      ></textarea>
+                      {formErrors.message && (
+                        <p className="text-red-500 text-sm mt-1">{formErrors.message}</p>
+                      )}
+                    </div>
+                    
+                    <button
+                      type="submit"
+                      className="btn-primary"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <svg className="animate-spin h-5 w-5 mr-2" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          Send Message <Send size={18} />
+                        </>
+                      )}
+                    </button>
+                  </form>
+                ) : (
+                  <div className="text-center py-12">
+                    <div className="bg-green-100 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
+                      <svg className="text-green-600 w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <h3 className="text-3xl font-bold text-hampi-dark mb-4">Message Sent!</h3>
+                    <p className="text-gray-600 mb-8 max-w-md mx-auto">
+                      Thank you for contacting us. We'll get back to you as soon as possible.
+                    </p>
                   </div>
-                  
-                  <div className="mb-4">
-                    <label className="block text-gray-700 font-medium mb-2" htmlFor="email">
-                      Your Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-hampi-orange ${
-                        formErrors.email ? "border-red-500" : "border-gray-300"
-                      }`}
-                      placeholder="Your email address"
-                    />
-                    {formErrors.email && (
-                      <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>
-                    )}
-                  </div>
-                  
-                  <div className="mb-4">
-                    <label className="block text-gray-700 font-medium mb-2" htmlFor="subject">
-                      Subject
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-hampi-orange ${
-                        formErrors.subject ? "border-red-500" : "border-gray-300"
-                      }`}
-                      placeholder="Subject of your message"
-                    />
-                    {formErrors.subject && (
-                      <p className="text-red-500 text-sm mt-1">{formErrors.subject}</p>
-                    )}
-                  </div>
-                  
-                  <div className="mb-6">
-                    <label className="block text-gray-700 font-medium mb-2" htmlFor="message">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      rows={5}
-                      className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-hampi-orange ${
-                        formErrors.message ? "border-red-500" : "border-gray-300"
-                      }`}
-                      placeholder="Your message here..."
-                    ></textarea>
-                    {formErrors.message && (
-                      <p className="text-red-500 text-sm mt-1">{formErrors.message}</p>
-                    )}
-                  </div>
-                  
-                  <button
-                    type="submit"
-                    className="btn-primary"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <svg className="animate-spin h-5 w-5 mr-2" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                        </svg>
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        Send Message <Send size={18} />
-                      </>
-                    )}
-                  </button>
-                </form>
-              ) : (
-                <div className="text-center py-12">
-                  <div className="bg-green-100 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
-                    <svg className="text-green-600 w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                  </div>
-                  <h3 className="text-3xl font-bold text-hampi-dark mb-4">Message Sent!</h3>
-                  <p className="text-gray-600 mb-8 max-w-md mx-auto">
-                    Thank you for contacting us. We'll get back to you as soon as possible.
-                  </p>
-                </div>
-              )}
-            </div>
+                )}
+              </div>
+            </AnimateOnScroll>
             
             {/* Contact Details */}
-            <div className="bg-gray-50 rounded-xl shadow-lg overflow-hidden p-8">
-              <h3 className="text-2xl font-bold text-hampi-dark mb-6">Contact Information</h3>
-              
-              <div className="space-y-6">
-                <div className="flex items-start gap-3">
-                  <div className="p-2 bg-hampi-orange/10 rounded-lg">
-                    <MapPin size={20} className="text-hampi-orange" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-hampi-dark">Address:</h4>
-                    <p className="text-gray-700">
-                      123 Hampi Main Road, <br />
-                      Hampi, Karnataka 583239, <br />
-                      India
-                    </p>
-                  </div>
-                </div>
+            <AnimateOnScroll animation="slide-in" delay={200}>
+              <div className="bg-gray-50 rounded-xl shadow-lg overflow-hidden p-8">
+                <h3 className="text-2xl font-bold text-hampi-dark mb-6">Contact Information</h3>
                 
-                <div className="flex items-start gap-3">
-                  <div className="p-2 bg-hampi-orange/10 rounded-lg">
-                    <Mail size={20} className="text-hampi-orange" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-hampi-dark">Email:</h4>
-                    <p className="text-gray-700">
-                      <a href="mailto:info@tourofhampi.com" className="text-hampi-blue hover:underline">
-                        info@tourofhampi.com
-                      </a>
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-3">
-                  <div className="p-2 bg-hampi-orange/10 rounded-lg">
-                    <Phone size={20} className="text-hampi-orange" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-hampi-dark">Phone:</h4>
-                    <p className="text-gray-700">
-                      <a href="tel:+919876543210" className="text-hampi-blue hover:underline">
-                        +91 9876543210
-                      </a>
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="bg-gray-100 p-4 rounded-xl">
+                <div className="space-y-6">
                   <div className="flex items-start gap-3">
-                    <AlertTriangle size={18} className="text-hampi-orange shrink-0 mt-0.5" />
-                    <p className="text-gray-700 text-sm">
-                      <strong>Note:</strong> Our team aims to respond to all inquiries within 24-48 hours.
-                    </p>
+                    <div className="p-2 bg-hampi-orange/10 rounded-lg">
+                      <MapPin size={20} className="text-hampi-orange" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-hampi-dark">Address:</h4>
+                      <p className="text-gray-700">
+                        123 Hampi Main Road, <br />
+                        Hampi, Karnataka 583239, <br />
+                        India
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <div className="p-2 bg-hampi-orange/10 rounded-lg">
+                      <Mail size={20} className="text-hampi-orange" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-hampi-dark">Email:</h4>
+                      <p className="text-gray-700">
+                        <a href="mailto:info@tourofhampi.com" className="text-hampi-blue hover:underline">
+                          info@tourofhampi.com
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <div className="p-2 bg-hampi-orange/10 rounded-lg">
+                      <Phone size={20} className="text-hampi-orange" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-hampi-dark">Phone:</h4>
+                      <p className="text-gray-700">
+                        <a href="tel:+919876543210" className="text-hampi-blue hover:underline">
+                          +91 9876543210
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gray-100 p-4 rounded-xl">
+                    <div className="flex items-start gap-3">
+                      <AlertTriangle size={18} className="text-hampi-orange shrink-0 mt-0.5" />
+                      <p className="text-gray-700 text-sm">
+                        <strong>Note:</strong> Our team aims to respond to all inquiries within 24-48 hours.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </AnimateOnScroll>
           </div>
         </div>
       </section>

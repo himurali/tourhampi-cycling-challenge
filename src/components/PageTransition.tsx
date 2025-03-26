@@ -12,7 +12,7 @@ const PageTransition = ({ children }: PageTransitionProps) => {
   const [transitionStage, setTransitionStage] = useState("fadeIn");
 
   useEffect(() => {
-    if (location !== displayLocation) {
+    if (location.pathname !== displayLocation.pathname) {
       setTransitionStage("fadeOut");
     }
   }, [location, displayLocation]);
@@ -26,7 +26,7 @@ const PageTransition = ({ children }: PageTransitionProps) => {
 
   return (
     <div
-      className={`transition-opacity duration-300 ease-in-out ${
+      className={`transition-opacity duration-500 ease-in-out ${
         transitionStage === "fadeIn" ? "opacity-100" : "opacity-0"
       }`}
       onAnimationEnd={handleAnimationEnd}
