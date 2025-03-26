@@ -52,7 +52,7 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <AnimateOnScroll animation="slide-in">
+              <AnimateOnScroll animation="slide-in-right">
                 <div>
                   <h2 className="text-3xl font-bold mb-6 text-hampi-dark">
                     The Premier Cycling Event in India

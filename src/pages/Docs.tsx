@@ -72,7 +72,7 @@ const Docs = () => {
       
       <div className="flex flex-col md:flex-row gap-8">
         <div className="md:w-1/4 lg:w-1/5">
-          <AnimateOnScroll animation="slide-in" delay={200}>
+          <AnimateOnScroll animation="slide-in-left" delay={200}>
             <DocsSidebar currentDoc={currentDoc} />
           </AnimateOnScroll>
         </div>

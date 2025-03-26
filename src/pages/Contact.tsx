@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { Mail, Phone, MapPin, Send, AlertTriangle } from "lucide-react";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
@@ -126,7 +127,7 @@ const Contact = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <AnimateOnScroll animation="slide-in" delay={100}>
+            <AnimateOnScroll animation="slide-in-right" delay={100}>
               <div className="bg-white rounded-xl shadow-lg overflow-hidden p-8">
                 <h3 className="text-2xl font-bold text-hampi-dark mb-6">Send us a Message</h3>
                 
@@ -249,7 +250,7 @@ const Contact = () => {
             </AnimateOnScroll>
             
             {/* Contact Details */}
-            <AnimateOnScroll animation="slide-in" delay={200}>
+            <AnimateOnScroll animation="slide-in-left" delay={200}>
               <div className="bg-gray-50 rounded-xl shadow-lg overflow-hidden p-8">
                 <h3 className="text-2xl font-bold text-hampi-dark mb-6">Contact Information</h3>
                 
