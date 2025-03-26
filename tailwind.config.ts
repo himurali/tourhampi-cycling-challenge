@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -68,7 +67,7 @@ export default {
           ring: 'hsl(var(--sidebar-ring))'
         },
         hampi: {
-          orange: '#FF8500', // Updated to match exactly #ff8500
+          orange: '#FF8500',
           blue: '#3B78C9',
           stone: '#E8E6E1',
           dark: '#1A1A1A',
@@ -125,7 +124,7 @@ export default {
       },
       fontFamily: {
         sans: ['Montserrat', 'sans-serif'],
-        display: ['Montserrat', 'sans-serif'], // Changed to use the same font as sans
+        display: ['Libre Baskerville', 'serif'],
       },
     },
   },
