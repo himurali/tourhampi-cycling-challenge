@@ -123,7 +123,7 @@ export default {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
       fontFamily: {
-        sans: ['Montserrat', 'sans-serif'],
+        sans: ['Libre Baskerville', 'serif'],
         display: ['Libre Baskerville', 'serif'],
       },
     },
