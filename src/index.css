@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
 
 @tailwind base;
@@ -48,7 +49,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-sans font-semibold tracking-tight; /* Changed from font-display to font-sans */
+    @apply font-sans font-semibold tracking-tight;
   }
 }
 
@@ -70,7 +71,7 @@
   }
   
   .glass-card {
-    @apply bg-white bg-opacity-10 backdrop-blur-lg border border-white border-opacity-20 rounded-xl shadow-xl;
+    @apply bg-white bg-opacity-10 backdrop-blur-lg border border-white border-opacity-20 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:bg-opacity-20;
   }
   
   .section-title {
@@ -84,6 +85,55 @@
   .chain-border {
     @apply relative before:absolute before:content-[''] before:w-full before:h-[2px] before:bg-hampi-orange/20 before:bottom-0 before:left-0 pb-4;
   }
+
+  /* Animation Classes */
+  .animate-fade-in {
+    @apply opacity-0 animate-fade-in;
+  }
+
+  .animate-slide-in-right {
+    @apply -translate-x-10 opacity-0 animate-slide-in;
+  }
+
+  .animate-slide-in-left {
+    @apply translate-x-10 opacity-0 animate-slide-in;
+  }
+
+  .animate-slide-in-up {
+    @apply translate-y-10 opacity-0 animate-slide-in;
+  }
+
+  .animate-slide-in-down {
+    @apply -translate-y-10 opacity-0 animate-slide-in;
+  }
+
+  .animate-scale-in {
+    @apply scale-95 opacity-0 animate-scale-in;
+  }
+
+  .animate-bounce-in {
+    @apply scale-95 opacity-0 animate-bounce-in;
+  }
+
+  .staggered-item {
+    @apply opacity-0 -translate-y-4 transition-all duration-500 ease-out;
+  }
+
+  .staggered-container:hover .staggered-item {
+    @apply opacity-100 translate-y-0;
+  }
+
+  .link-underline {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-hampi-orange after:transition-all after:duration-300 hover:after:w-full;
+  }
+
+  .zoom-on-hover {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+
+  .glow-on-hover {
+    @apply transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,133,0,0.5)];
+  }
 }
 
 /* Custom animations */
@@ -96,6 +146,98 @@
   opacity: 1;
   transform: translateY(0);
   transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.8s forwards;
+}
+
+.animate-slide-in {
+  animation: slide-in 0.8s forwards;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.8s forwards;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+.delay-700 {
+  animation-delay: 0.7s;
+}
+
+.delay-1000 {
+  animation-delay: 1s;
 }
 
 /* Custom scrollbar */

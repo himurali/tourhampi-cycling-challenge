@@ -1,6 +1,7 @@
 
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin, Calendar, Award } from "lucide-react";
+import AnimateOnScroll from "./AnimateOnScroll";
 
 const Hero = () => {
   return (
@@ -37,7 +38,7 @@ const Hero = () => {
             </div>
 
             {/* Logo displayed prominently */}
-            <div className="relative z-20 w-[220px] h-[220px] md:w-[300px] md:h-[300px]">
+            <div className="relative z-20 w-[220px] h-[220px] md:w-[300px] md:h-[300px] animate-bounce-in">
               <div className="w-full h-full flex items-center justify-center">
                 <div className="w-full h-full rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center p-3">
                   <img 
@@ -52,41 +53,51 @@ const Hero = () => {
 
           {/* Right Column: Content */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
-            <span className="inline-block py-1 px-3 bg-hampi-orange text-white text-sm font-medium rounded-full mb-6 animate-fade-in">
-              August 14-16, 2025
-            </span>
+            <AnimateOnScroll animation="slide-in-right">
+              <span className="inline-block py-1 px-3 bg-hampi-orange text-white text-sm font-medium rounded-full mb-6">
+                August 14-16, 2025
+              </span>
+            </AnimateOnScroll>
             
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-hampi-orange leading-tight animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              Tour of Hampi
-            </h1>
+            <AnimateOnScroll animation="slide-in-right" delay={200}>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-hampi-orange leading-tight">
+                Tour of Hampi
+              </h1>
+            </AnimateOnScroll>
             
-            <h2 className="text-xl md:text-2xl lg:text-3xl text-hampi-dark/80 mt-4 mb-6 animate-fade-in" style={{ animationDelay: "0.4s" }}>
-              Experience the ultimate cycling challenge amidst the ancient ruins of Hampi
-            </h2>
+            <AnimateOnScroll animation="slide-in-right" delay={400}>
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-hampi-dark/80 mt-4 mb-6">
+                Experience the ultimate cycling challenge amidst the ancient ruins of Hampi
+              </h2>
+            </AnimateOnScroll>
             
-            <div className="flex flex-wrap gap-6 mt-2 mb-10 justify-center md:justify-start animate-fade-in" style={{ animationDelay: "0.6s" }}>
-              <div className="flex items-center gap-2 text-hampi-dark">
-                <Award className="text-hampi-orange" size={24} />
-                <span>₹5,00,000 Prize Pool</span>
+            <AnimateOnScroll animation="fade-in" delay={600}>
+              <div className="flex flex-wrap gap-6 mt-2 mb-10 justify-center md:justify-start">
+                <div className="flex items-center gap-2 text-hampi-dark">
+                  <Award className="text-hampi-orange" size={24} />
+                  <span>₹5,00,000 Prize Pool</span>
+                </div>
+                <div className="flex items-center gap-2 text-hampi-dark">
+                  <Calendar className="text-hampi-orange" size={24} />
+                  <span>August 14-16, 2025</span>
+                </div>
+                <div className="flex items-center gap-2 text-hampi-dark">
+                  <MapPin className="text-hampi-orange" size={24} />
+                  <span>Hampi, Karnataka</span>
+                </div>
               </div>
-              <div className="flex items-center gap-2 text-hampi-dark">
-                <Calendar className="text-hampi-orange" size={24} />
-                <span>August 14-16, 2025</span>
-              </div>
-              <div className="flex items-center gap-2 text-hampi-dark">
-                <MapPin className="text-hampi-orange" size={24} />
-                <span>Hampi, Karnataka</span>
-              </div>
-            </div>
+            </AnimateOnScroll>
             
-            <div className="flex flex-col sm:flex-row gap-4 mt-6 animate-fade-in" style={{ animationDelay: "0.8s" }}>
-              <Link to="/register" className="btn-primary">
-                Register Now <ArrowRight size={18} />
-              </Link>
-              <Link to="/route" className="btn-outline">
-                View Race Route <MapPin size={18} />
-              </Link>
-            </div>
+            <AnimateOnScroll animation="slide-in-up" delay={800}>
+              <div className="flex flex-col sm:flex-row gap-4 mt-6">
+                <Link to="/register" className="btn-primary">
+                  Register Now <ArrowRight size={18} />
+                </Link>
+                <Link to="/route" className="btn-outline">
+                  View Race Route <MapPin size={18} />
+                </Link>
+              </div>
+            </AnimateOnScroll>
           </div>
         </div>
       </div>
