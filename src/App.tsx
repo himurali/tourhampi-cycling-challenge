@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -23,7 +22,6 @@ import PageTransition from "./components/PageTransition";
 
 const queryClient = new QueryClient();
 
-// ScrollToTop component to scroll to top when route changes
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   
@@ -38,7 +36,6 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading for smoother transitions
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1000);
@@ -50,10 +47,7 @@ const App = () => {
     return (
       <div className="fixed inset-0 bg-hampi-orange flex items-center justify-center">
         <div className="relative w-40 h-40">
-          {/* Rotating chain border */}
           <div className="absolute inset-0 animate-spin-slow border-2 border-white border-opacity-30 rounded-full"></div>
-          
-          {/* Simplified logo display with exact color */}
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="w-32 h-32 rounded-full bg-white p-2 flex items-center justify-center animate-bounce-in">
               <svg viewBox="0 0 100 100" className="w-full h-full">

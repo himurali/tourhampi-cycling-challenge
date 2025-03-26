@@ -1,7 +1,6 @@
-
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FileText, ArrowRight, CheckCircle, AlertTriangle, Clock, Leaf } from "lucide-react";
+import { FileText, ArrowRight, CheckCircle, AlertTriangle, Clock, Leaf, XCircle } from "lucide-react";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 
 const Rules = () => {
