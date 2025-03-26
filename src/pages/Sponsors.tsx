@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ExternalLink } from "lucide-react";
+import AnimateOnScroll from "@/components/AnimateOnScroll";
 
 const Sponsors = () => {
   useEffect(() => {
@@ -167,176 +168,188 @@ const Sponsors = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             {/* Title Sponsors */}
-            <div className="mb-20">
-              <h2 className="text-center text-3xl font-bold text-hampi-dark mb-12">Title Sponsor</h2>
-              
-              <div className="bg-white shadow-lg rounded-xl overflow-hidden">
-                {titleSponsors.map((sponsor, index) => (
-                  <div key={index} className="grid grid-cols-1 md:grid-cols-3 items-center gap-8 p-8">
-                    <div className="flex justify-center md:justify-start">
-                      <img 
-                        src={sponsor.logo} 
-                        alt={sponsor.name} 
-                        className="max-w-full h-auto"
-                      />
-                    </div>
-                    <div className="md:col-span-2">
-                      <h3 className="text-2xl font-bold text-hampi-dark mb-4">{sponsor.name}</h3>
-                      <p className="text-gray-600 mb-4">{sponsor.description}</p>
-                      <a href={sponsor.website} className="flex items-center gap-2 text-hampi-orange hover:text-hampi-orange/80 font-medium transition-colors">
-                        Visit Website <ExternalLink size={16} />
-                      </a>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Gold Sponsors */}
-            <div className="mb-20">
-              <h2 className="text-center text-3xl font-bold text-hampi-dark mb-12">Gold Sponsors</h2>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {goldSponsors.map((sponsor, index) => (
-                  <div key={index} className="bg-white shadow-lg rounded-xl overflow-hidden p-6">
-                    <div className="flex justify-center mb-6">
-                      <img 
-                        src={sponsor.logo} 
-                        alt={sponsor.name} 
-                        className="max-w-full h-auto"
-                      />
-                    </div>
-                    <h3 className="text-xl font-bold text-hampi-dark mb-3 text-center">{sponsor.name}</h3>
-                    <p className="text-gray-600 mb-4 text-center">{sponsor.description}</p>
-                    <div className="text-center">
-                      <a href={sponsor.website} className="inline-flex items-center gap-2 text-hampi-orange hover:text-hampi-orange/80 font-medium transition-colors">
-                        Visit Website <ExternalLink size={16} />
-                      </a>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Silver Sponsors */}
-            <div className="mb-20">
-              <h2 className="text-center text-3xl font-bold text-hampi-dark mb-12">Silver Sponsors</h2>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                {silverSponsors.map((sponsor, index) => (
-                  <div key={index} className="bg-white shadow-md rounded-xl overflow-hidden p-6 text-center">
-                    <div className="flex justify-center mb-6 h-16 items-center">
-                      <img 
-                        src={sponsor.logo} 
-                        alt={sponsor.name} 
-                        className="max-w-full h-auto"
-                      />
-                    </div>
-                    <h3 className="text-lg font-bold text-hampi-dark mb-3">{sponsor.name}</h3>
-                    <a href={sponsor.website} className="inline-flex items-center gap-1 text-sm text-hampi-orange hover:text-hampi-orange/80 font-medium transition-colors">
-                      Website <ExternalLink size={14} />
-                    </a>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Official Partners */}
-            <div className="mb-20">
-              <h2 className="text-center text-3xl font-bold text-hampi-dark mb-12">Official Partners</h2>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                {officialPartners.map((partner, index) => (
-                  <div key={index} className="bg-gray-50 rounded-xl overflow-hidden p-6 text-center">
-                    <div className="flex justify-center mb-4 h-14 items-center">
-                      <img 
-                        src={partner.logo} 
-                        alt={partner.name} 
-                        className="max-w-full h-auto"
-                      />
-                    </div>
-                    <h3 className="text-lg font-bold text-hampi-dark mb-1">{partner.name}</h3>
-                    <p className="text-sm text-gray-600 mb-3">{partner.type}</p>
-                    <a href={partner.website} className="inline-flex items-center gap-1 text-sm text-hampi-blue hover:text-hampi-blue/80 font-medium transition-colors">
-                      Learn More <ExternalLink size={14} />
-                    </a>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Become a Sponsor */}
-            <div className="mb-16">
-              <div className="bg-gray-50 rounded-xl overflow-hidden p-8 md:p-12">
-                <div className="text-center mb-12">
-                  <h2 className="text-3xl font-bold text-hampi-dark mb-4">Become a Sponsor</h2>
-                  <p className="text-gray-600 max-w-3xl mx-auto">
-                    Join our esteemed group of sponsors and gain exclusive access to a passionate community of cyclists and outdoor enthusiasts. We offer various sponsorship packages to suit different marketing goals and budgets.
-                  </p>
-                </div>
+            <AnimateOnScroll animation="fade-in">
+              <div className="mb-20">
+                <h2 className="text-center text-3xl font-bold text-hampi-dark mb-12">Title Sponsor</h2>
                 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  {sponsorshipPackages.map((pkg, index) => (
-                    <div key={index} className={`bg-white rounded-xl overflow-hidden shadow-lg border-t-4 transition-all duration-300 hover:shadow-xl ${
-                      index === 0 ? "border-hampi-orange" : index === 1 ? "border-hampi-blue" : "border-gray-400"
-                    }`}>
-                      <div className="p-6">
-                        <h3 className="text-xl font-bold text-hampi-dark mb-2 text-center">{pkg.name}</h3>
-                        <p className="text-2xl font-bold text-center mb-6 text-hampi-orange">{pkg.price}</p>
-                        
-                        <h4 className="font-semibold mb-3 text-hampi-dark">Benefits:</h4>
-                        <ul className="space-y-2 mb-6">
-                          {pkg.benefits.map((benefit, i) => (
-                            <li key={i} className="flex items-start gap-2">
-                              <span className="h-2 w-2 bg-hampi-orange rounded-full mt-2"></span>
-                              <span className="text-sm text-gray-600">{benefit}</span>
-                            </li>
-                          ))}
-                        </ul>
-                        
-                        <div className="text-center mt-auto">
-                          <a href="#" className={`inline-block font-semibold py-2 px-4 rounded-md transition-all ${
-                            index === 0 
-                              ? "bg-hampi-orange text-white hover:bg-hampi-orange/90" 
-                              : index === 1 
-                              ? "bg-hampi-blue text-white hover:bg-hampi-blue/90"
-                              : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                          }`}>
-                            Request Details
-                          </a>
-                        </div>
+                <div className="bg-white shadow-lg rounded-xl overflow-hidden">
+                  {titleSponsors.map((sponsor, index) => (
+                    <div key={index} className="grid grid-cols-1 md:grid-cols-3 items-center gap-8 p-8">
+                      <div className="flex justify-center md:justify-start">
+                        <img 
+                          src={sponsor.logo} 
+                          alt={sponsor.name} 
+                          className="max-w-full h-auto"
+                        />
+                      </div>
+                      <div className="md:col-span-2">
+                        <h3 className="text-2xl font-bold text-hampi-dark mb-4">{sponsor.name}</h3>
+                        <p className="text-gray-600 mb-4">{sponsor.description}</p>
+                        <a href={sponsor.website} className="flex items-center gap-2 text-hampi-orange hover:text-hampi-orange/80 font-medium transition-colors">
+                          Visit Website <ExternalLink size={16} />
+                        </a>
                       </div>
                     </div>
                   ))}
                 </div>
+              </div>
+            </AnimateOnScroll>
+            
+            {/* Gold Sponsors */}
+            <AnimateOnScroll animation="fade-in" delay={100}>
+              <div className="mb-20">
+                <h2 className="text-center text-3xl font-bold text-hampi-dark mb-12">Gold Sponsors</h2>
                 
-                <div className="text-center mt-12">
-                  <p className="text-gray-600 mb-6">
-                    Looking for a custom sponsorship package? Contact our sponsorship team to discuss your specific requirements and goals.
-                  </p>
-                  <a href="/contact" className="btn-primary inline-flex">
-                    Contact Sponsorship Team <ArrowRight size={18} />
-                  </a>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {goldSponsors.map((sponsor, index) => (
+                    <div key={index} className="bg-white shadow-lg rounded-xl overflow-hidden p-6">
+                      <div className="flex justify-center mb-6">
+                        <img 
+                          src={sponsor.logo} 
+                          alt={sponsor.name} 
+                          className="max-w-full h-auto"
+                        />
+                      </div>
+                      <h3 className="text-xl font-bold text-hampi-dark mb-3 text-center">{sponsor.name}</h3>
+                      <p className="text-gray-600 mb-4 text-center">{sponsor.description}</p>
+                      <div className="text-center">
+                        <a href={sponsor.website} className="inline-flex items-center gap-2 text-hampi-orange hover:text-hampi-orange/80 font-medium transition-colors">
+                          Visit Website <ExternalLink size={16} />
+                        </a>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
-            </div>
+            </AnimateOnScroll>
+            
+            {/* Silver Sponsors */}
+            <AnimateOnScroll animation="fade-in" delay={200}>
+              <div className="mb-20">
+                <h2 className="text-center text-3xl font-bold text-hampi-dark mb-12">Silver Sponsors</h2>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                  {silverSponsors.map((sponsor, index) => (
+                    <div key={index} className="bg-white shadow-md rounded-xl overflow-hidden p-6 text-center">
+                      <div className="flex justify-center mb-6 h-16 items-center">
+                        <img 
+                          src={sponsor.logo} 
+                          alt={sponsor.name} 
+                          className="max-w-full h-auto"
+                        />
+                      </div>
+                      <h3 className="text-lg font-bold text-hampi-dark mb-3">{sponsor.name}</h3>
+                      <a href={sponsor.website} className="inline-flex items-center gap-1 text-sm text-hampi-orange hover:text-hampi-orange/80 font-medium transition-colors">
+                        Website <ExternalLink size={14} />
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </AnimateOnScroll>
+            
+            {/* Official Partners */}
+            <AnimateOnScroll animation="fade-in" delay={300}>
+              <div className="mb-20">
+                <h2 className="text-center text-3xl font-bold text-hampi-dark mb-12">Official Partners</h2>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                  {officialPartners.map((partner, index) => (
+                    <div key={index} className="bg-gray-50 rounded-xl overflow-hidden p-6 text-center">
+                      <div className="flex justify-center mb-4 h-14 items-center">
+                        <img 
+                          src={partner.logo} 
+                          alt={partner.name} 
+                          className="max-w-full h-auto"
+                        />
+                      </div>
+                      <h3 className="text-lg font-bold text-hampi-dark mb-1">{partner.name}</h3>
+                      <p className="text-sm text-gray-600 mb-3">{partner.type}</p>
+                      <a href={partner.website} className="inline-flex items-center gap-1 text-sm text-hampi-blue hover:text-hampi-blue/80 font-medium transition-colors">
+                        Learn More <ExternalLink size={14} />
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </AnimateOnScroll>
+            
+            {/* Become a Sponsor */}
+            <AnimateOnScroll animation="fade-in" delay={400}>
+              <div className="mb-16">
+                <div className="bg-gray-50 rounded-xl overflow-hidden p-8 md:p-12">
+                  <div className="text-center mb-12">
+                    <h2 className="text-3xl font-bold text-hampi-dark mb-4">Become a Sponsor</h2>
+                    <p className="text-gray-600 max-w-3xl mx-auto">
+                      Join our esteemed group of sponsors and gain exclusive access to a passionate community of cyclists and outdoor enthusiasts. We offer various sponsorship packages to suit different marketing goals and budgets.
+                    </p>
+                  </div>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {sponsorshipPackages.map((pkg, index) => (
+                      <div key={index} className={`bg-white rounded-xl overflow-hidden shadow-lg border-t-4 transition-all duration-300 hover:shadow-xl ${
+                        index === 0 ? "border-hampi-orange" : index === 1 ? "border-hampi-blue" : "border-gray-400"
+                      }`}>
+                        <div className="p-6">
+                          <h3 className="text-xl font-bold text-hampi-dark mb-2 text-center">{pkg.name}</h3>
+                          <p className="text-2xl font-bold text-center mb-6 text-hampi-orange">{pkg.price}</p>
+                          
+                          <h4 className="font-semibold mb-3 text-hampi-dark">Benefits:</h4>
+                          <ul className="space-y-2 mb-6">
+                            {pkg.benefits.map((benefit, i) => (
+                              <li key={i} className="flex items-start gap-2">
+                                <span className="h-2 w-2 bg-hampi-orange rounded-full mt-2"></span>
+                                <span className="text-sm text-gray-600">{benefit}</span>
+                              </li>
+                            ))}
+                          </ul>
+                          
+                          <div className="text-center mt-auto">
+                            <a href="#" className={`inline-block font-semibold py-2 px-4 rounded-md transition-all ${
+                              index === 0 
+                                ? "bg-hampi-orange text-white hover:bg-hampi-orange/90" 
+                                : index === 1 
+                                ? "bg-hampi-blue text-white hover:bg-hampi-blue/90"
+                                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                            }`}>
+                              Request Details
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <div className="text-center mt-12">
+                    <p className="text-gray-600 mb-6">
+                      Looking for a custom sponsorship package? Contact our sponsorship team to discuss your specific requirements and goals.
+                    </p>
+                    <Link to="/contact" className="btn-primary inline-flex">
+                      Contact Sponsorship Team <ArrowRight size={18} />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </AnimateOnScroll>
             
             {/* Past Sponsors */}
-            <div className="text-center">
-              <h2 className="text-2xl font-bold text-hampi-dark mb-6">Past Sponsors</h2>
-              <p className="text-gray-600 mb-6 max-w-3xl mx-auto">
-                We're grateful to all the brands and organizations that have supported the Tour of Hampi over the years. Their commitment has helped us grow into one of India's premier cycling events.
-              </p>
-              
-              <div className="flex flex-wrap justify-center gap-8 items-center opacity-60">
-                <img src="https://placehold.co/120x50/F5F7F8/1A1A1A?text=Past+Sponsor+1" alt="Past Sponsor" className="h-10" />
-                <img src="https://placehold.co/120x50/F5F7F8/1A1A1A?text=Past+Sponsor+2" alt="Past Sponsor" className="h-10" />
-                <img src="https://placehold.co/120x50/F5F7F8/1A1A1A?text=Past+Sponsor+3" alt="Past Sponsor" className="h-10" />
-                <img src="https://placehold.co/120x50/F5F7F8/1A1A1A?text=Past+Sponsor+4" alt="Past Sponsor" className="h-10" />
-                <img src="https://placehold.co/120x50/F5F7F8/1A1A1A?text=Past+Sponsor+5" alt="Past Sponsor" className="h-10" />
-                <img src="https://placehold.co/120x50/F5F7F8/1A1A1A?text=Past+Sponsor+6" alt="Past Sponsor" className="h-10" />
+            <AnimateOnScroll animation="fade-in" delay={500}>
+              <div className="text-center">
+                <h2 className="text-2xl font-bold text-hampi-dark mb-6">Past Sponsors</h2>
+                <p className="text-gray-600 mb-6 max-w-3xl mx-auto">
+                  We're grateful to all the brands and organizations that have supported the Tour of Hampi over the years. Their commitment has helped us grow into one of India's premier cycling events.
+                </p>
+                
+                <div className="flex flex-wrap justify-center gap-8 items-center opacity-60">
+                  <img src="https://placehold.co/120x50/F5F7F8/1A1A1A?text=Past+Sponsor+1" alt="Past Sponsor" className="h-10" />
+                  <img src="https://placehold.co/120x50/F5F7F8/1A1A1A?text=Past+Sponsor+2" alt="Past Sponsor" className="h-10" />
+                  <img src="https://placehold.co/120x50/F5F7F8/1A1A1A?text=Past+Sponsor+3" alt="Past Sponsor" className="h-10" />
+                  <img src="https://placehold.co/120x50/F5F7F8/1A1A1A?text=Past+Sponsor+4" alt="Past Sponsor" className="h-10" />
+                  <img src="https://placehold.co/120x50/F5F7F8/1A1A1A?text=Past+Sponsor+5" alt="Past Sponsor" className="h-10" />
+                  <img src="https://placehold.co/120x50/F5F7F8/1A1A1A?text=Past+Sponsor+6" alt="Past Sponsor" className="h-10" />
+                </div>
               </div>
-            </div>
+            </AnimateOnScroll>
           </div>
         </div>
       </section>
